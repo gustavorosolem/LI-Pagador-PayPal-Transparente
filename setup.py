@@ -8,7 +8,7 @@ def read(fname):
 
 setup(
     name='li-pagador-paypal-transparente',
-    version='2.2.3',
+    version='1.0.0',
     url='https://github.com/lojaintegrada/LI-Pagador-PayPal-Transparente',
     license='MIT',
     description='Meio de pagamento usando o PayPal Plus (https://www.paypal.com)',
