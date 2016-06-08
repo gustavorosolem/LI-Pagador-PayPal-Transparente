@@ -1,0 +1,34 @@
+language: python
+python:
+- '2.7'
+install:
+- pip install -e .
+- pip install coveralls
+- pip install sure
+- pip install py-inspector
+script:
+- rm -rf .coverage
+- make test
+after_success:
+- coveralls
+deploy:
+  provider: pypi
+  user: lojaintegrada
+  on:
+    tags: true
+    repo: lojaintegrada/LI-Pagador-Deposito
+    all_branches: true
+  password:
+    secure: DMJ0pyfGmn+yD1djOy7YkCBOSfmkEQ+jEbT6zqj6QpR08UfLAwp9ntfHUnTJgGwp3b4ynLLGyqLWa5GfDq9ubjWB/3IU6q0Xx6wNxDS4i6EkUjPsv3vOKL81Wx999NrnhIiF1hVGadkfNj2V0B/jmHfL22gQIB19mIfWiA4dPik=
+notifications:
+  email:
+    recipients:
+    - contato@awsli.com.br
+    - marcio.duarte@lojaintegrada.com.br
+  hipchat:
+    rooms:
+      secure: VKKtZ826UP0R9+j49v87Qj9KhAs9GjBS+kpXT2v0JCCvAxwkW07E3e5DbxeRGaCojMJ3Jy8IfRWqr/QVhvcXCrV0SG3UUk/eMvWTs26tX2xBtVs7QOgrC8RQhV3hhPueA/orVjlfcWymioK9/R2E7uOkHu54s8PAYmkv5vuCxlU=
+    template:
+      - '%{result} - %{repository_name}#%{build_number} (%{branch} - %{commit} : %{author}) (<a href="%{build_url}">Detalhes</a>/<a href="%{compare_url}">Altera&ccedil;&otilde;es</a>)'
+    format: html
+sudo: false
