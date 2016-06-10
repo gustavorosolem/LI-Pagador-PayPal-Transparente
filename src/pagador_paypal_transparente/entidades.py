@@ -136,5 +136,7 @@ class ConfiguracaoMeioPagamento(entidades.ConfiguracaoMeioPagamento):
         self.codigo_gateway = CODIGO_GATEWAY
         self.eh_gateway = True
         super(ConfiguracaoMeioPagamento, self).__init__(loja_id, codigo_pagamento, eh_listagem=eh_listagem)
+        self.exige_https = True
+        self.src_js_sdk = 'https://www.paypalobjects.com/webstatic/ppplusdcc/ppplusdcc.min.js'
         if not self.eh_listagem:
             self.formulario = cadastro.FormularioPayPalTransparente()
